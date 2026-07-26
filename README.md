@@ -2,7 +2,7 @@
 
 **Student:** Nganucye Singizwa Valentin
 **Student ID:** 27201
-**Course:** Software Testing — Semester Two, 2025–2026
+**Course:** Software Testing — Summer Semester, 2025–2026
 **University:** AUCA
 
 ---
