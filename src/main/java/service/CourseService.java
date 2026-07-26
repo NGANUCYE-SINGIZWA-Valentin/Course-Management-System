@@ -12,8 +12,8 @@ public class CourseService {
             return "provide course data";
         }
 
-        if (searchByCourseCode(course.getCourseCode()) != null) {
-            return "course already exists";
+       if (searchByCourseCode(course.getCourseCode()) != null) {
+           return "course already exists";
         }
 
         if (course.getCredits() < 1 || course.getCredits() > 5) {

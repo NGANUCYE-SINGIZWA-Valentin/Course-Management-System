@@ -1,7 +1,10 @@
 package service;
 
 import domain.Course;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -12,11 +15,30 @@ import static org.junit.Assert.assertSame;
 public class CourseServiceTest {
     private CourseService courseService;
 
+    // @BeforeClass runs once before all tests — good for expensive shared setup like a DB connection.
+    @BeforeClass
+    public static void initSuite() {
+        System.out.println("CourseServiceTest suite starting");
+    }
+
+    // @Before runs before every test — used here so each test gets a clean, independent service.
     @Before
     public void setUp() {
         courseService = new CourseService();
         courseService.saveCourse(new Course("CS301", "Software Testing", 3, 40));
         courseService.saveCourse(new Course("CS302", "Database Systems", 4, 35));
+    }
+
+    // @After runs after every test, even if the test fails — used here to show teardown awareness.
+    @After
+    public void tearDown() {
+        courseService = null;
+    }
+
+    // @AfterClass runs once after all tests — good for closing shared resources.
+    @AfterClass
+    public static void tearDownSuite() {
+        System.out.println("CourseServiceTest suite finished");
     }
 
     @Test
